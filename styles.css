@@ -1,0 +1,143 @@
+/* styles.css */
+
+/* Reset default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Mobile-first styles */
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    line-height: 1.5;
+    padding: 10px;
+}
+
+/* Navbar styles */
+.navbar {
+    background-color: #333333;
+    color: white;
+    padding: 10px 22px 50px 22px; /* Top, Right, Bottom, Left*/
+    border-radius: 7px;
+   }
+
+.navbar a {
+    color: white;
+    text-decoration: none;
+    display: block;
+    padding: 10px 0;
+}
+
+.navbar a:hover {
+    color:rgb(123, 167, 255);
+    transition: color 1s ease-in-out;
+}
+
+.navbar a:hover {
+    transform: scale(1.08); 
+}
+
+.navdiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.navbar ul {
+    list-style: none;
+    display: flex;
+    justify-content: space-around;
+    gap: 20px; /*adds gap between nav items*/
+}
+
+.logo a { 
+    font-size: 22px;
+    font-weight: 600;
+    color: rgb(211, 211, 211);
+}
+
+li a {
+font-size: 18px;
+font-weight: normal;
+}
+
+/* Responsive styles for desktop */
+@media (min-width: 768px) {
+    .navbar ul {
+        justify-content: flex-start;
+        gap: 80px; /*adds gap between nav items*/
+    }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Blog intro section */
+.blog-intro {
+    text-align: center;
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.blog-intro h1 {
+    font-size: 24px;
+    color: #333;
+}
+
+.blog-intro p {
+    font-size: 16px;
+    color: #555;
+}
+
+/* Blog post styles */
+.blog-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.blog-post {
+    background-color: #f1f1f1;
+    padding: 15px;
+    border-radius: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.blog-post h2 {
+    font-size: 20px;
+    color: #333;
+}
+
+.blog-post .post-date {
+    font-size: 14px;
+    color: #888;
+}
+
+.blog-post .post-snippet {
+    font-size: 16px;
+    color: #555;
+}
