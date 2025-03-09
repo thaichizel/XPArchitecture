@@ -1,0 +1,30 @@
+{
+    "posts": [
+        {
+            "id": "post1",
+            "title": "Hand Drawing in the Age of CAD",
+            "date": "March 7, 2025",
+            "tags": ["Architecture", "Technology", "Things", "Stuff"],
+            "snippet": "This is a brief introduction to the blog post content.",
+            "content": "With the rapid adoption of CAD and BIM systems, traditional hand drawing techniques may seem like relics of the past. But are they really? Has CAD not replaced the hand long ago?"
+        },
+        {
+            "id": "post2",
+            "title": "Rethinking Public Spaces",
+            "date": "March 8, 2025",
+            "tags": ["Urban Design", "Architecture"],
+            "snippet": "A summary of rethinking public spaces.",
+            "content": "Public spaces have long been critical elements of urban life, but..."
+        },
+        {
+            "id": "post3",
+            "title": "Architect's Jargon - What do you mean when you talk about...",
+            "date": "March 9, 2025",
+            "tags": ["Communication"],
+            "snippet": "A summary of rethinking public spaces.",
+            "content": "Public spaces have long been critical elements of urban life, but..."
+        }
+
+
+    ]
+}

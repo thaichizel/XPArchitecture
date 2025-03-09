@@ -1,0 +1,21 @@
+How This Works
+
+Fetch Posts from posts.json:
+
+The script retrieves all blog post data, including titles, dates, tags, and snippets.
+
+Populate Blog Posts Dynamically:
+
+Each post is dynamically rendered inside <section id="blog-data">.
+
+Collect and Display Unique Tags:
+
+All unique tags are extracted from the posts and added to <ul id="tags-list">.
+
+Filter Posts by Tag:
+
+When a tag is clicked, the script hides all posts that don’t have the corresponding tag.
+
+URL-Based Filtering:
+
+If a URL fragment (e.g., #Architecture) exists, the script filters the posts automatically when tags.html loads.
