@@ -62,12 +62,35 @@ li a {
 }
 
 /* Responsive styles for desktop */
-@media (min-width: 768px) {
+@media (max-width: 768px) { /* Target devices with a width of 768px or smaller */
+    .navdiv {
+        flex-direction: column; /* Stack items vertically */
+        align-items: flex-start; /* Align items to the left */
+    }
+
+    .logo {
+        margin-bottom: 10px; /* Add space below the logo */
+    }
+
     .navbar ul {
-        justify-content: flex-start;
-        gap: 80px; /* Increases gap between nav items on larger screens */
+        flex-direction: row; 
+        gap: 10px; /* Add spacing between buttons */
+        width: 100%; /* Make buttons span the full width */
+        align-items: flex-start; /* Align buttons to the left */
+    }
+
+    .navbar ul li {
+        width: 100%; /* Ensure each button takes up the full width */
+    }
+
+    .navbar ul li a {
+        display: block;
+        width: 100%; /* Full-width clickable buttons */
+        text-align: left; /* Align text to the left for consistency */
+        padding: 10px 0; /* Add padding for touch-friendly buttons */
     }
 }
+
 
 /* Blog intro section */
 .blog-intro {
