@@ -1,32 +1,34 @@
-document.addEventListener("DOMContentLoaded", () => {
-    const postId = "post1"; // Change this for each post (e.g., post1, post2)
+fetch("data/posts.json")
+    .then(response => response.json())
+    .then(data => {
+        const postId = "post1"; // Example: Dynamically determine this based on the URL or context
+        const post = data.posts.find(p => p.id === postId);
 
-    // Fetch posts from JSON
-    fetch("posts.json")
-        .then((response) => response.json())
-        .then((data) => {
-            // Find the post with the matching ID
-            const post = data.posts.find((p) => p.id === postId);
-            if (post) {
-                // Update the page content
-                document.getElementById("post-title").textContent = post.title;
-                document.title = post.title; // Update the browser tab title
-                document.getElementById("post-date").textContent = post.date;
+        if (post) {
+            // Update metadata
+            document.title = post.title;
+            document.getElementById("post-title").textContent = post.title;
+            document.getElementById("post-date").textContent = post.date;
+            document.getElementById("post-tags").innerHTML = `Tags: ${post.tags.map(tag => `<a href="#${encodeURIComponent(tag)}">${tag}</a>`).join(", ")}`;
 
-                // Populate the tags
-                const tagsContainer = document.getElementById("post-tags");
-                post.tags.forEach((tag) => {
-                    const tagLink = document.createElement("a");
-                    tagLink.href = `tags.html#${encodeURIComponent(tag)}`;
-                    tagLink.textContent = tag;
-                    tagsContainer.appendChild(tagLink);
-                    tagsContainer.appendChild(document.createTextNode(", "));
+            // Fetch and render the content from the external .txt file
+            fetch(post.content)
+                .then(response => response.text())
+                .then(content => {
+                    document.getElementById("post-body").innerHTML = content;
                 });
-                tagsContainer.textContent = tagsContainer.textContent.slice(0, -2); // Remove trailing comma
 
-                // Populate the content
-                document.getElementById("post-body").textContent = post.content;
-            }
-        })
-        .catch((error) => console.error("Error loading post data:", error));
-});
+            // Render images
+            const postBody = document.getElementById("post-body");
+            post.images.forEach(image => {
+                const imgElement = document.createElement("img");
+                imgElement.src = image.src;
+                imgElement.alt = image.alt;
+                imgElement.classList.add("blog-image");
+                postBody.appendChild(imgElement);
+            });
+        } else {
+            console.error("Post not found!");
+        }
+    })
+    .catch(error => console.error("Error fetching post:", error));

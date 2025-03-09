@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const uniqueTags = new Set();
 
     // Step 1: Fetch posts from the JSON file
-    fetch("posts.json")
+    fetch("data/posts.json")
         .then((response) => response.json())
         .then((data) => {
             // Step 2: Collect unique tags and create blog posts dynamically

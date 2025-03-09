@@ -5,7 +5,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const uniqueTags = new Set();
 
     // Fetch posts from the JSON file
-    fetch("posts.json")
+    fetch("data/posts.json")
         .then((response) => response.json())
         .then((data) => {
             data.posts.forEach((post) => {

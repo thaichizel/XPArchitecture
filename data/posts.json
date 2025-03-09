@@ -10,7 +10,7 @@
                 {"src": "images/blog/testImage2.jpg", "alt": "Bellair Station Elevation", "portfolio": true}
             ],
             "snippet": "This is a brief introduction to the blog post content.",
-            "content": "With the rapid adoption of CAD and BIM systems, traditional hand drawing techniques may seem like relics of the past. But are they really? Has CAD not replaced the hand long ago?"
+            "content": "data/content/post1.txt"
         },
         {
             "id": "post2",

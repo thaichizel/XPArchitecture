@@ -11,10 +11,24 @@
     <!-- Include the navbar -->
     <div id="navbar"></div>
     <script src="js/loadNavbar.js"></script>
+    <!-- <script src="js/blogScript.js"></script>  -->
     
-    <main>
-        <h1>Portfolio</h1>
-        <!-- Add portfolio content here, e.g., a grid of projects -->
+       
+    <main style="display: flex;">
+        <!-- Sidebar for Tags -->
+        <aside class="tag-sidebar">
+            <h2>Filter by Tags</h2>
+
+            <!-- Fixed 'No Filter' button -->
+            <li><a href="#" id="no-filter">No Filters</a></li>
+            <ul id="tags-list"></ul> <!-- Tags will be dynamically added here -->
+
+        </aside>
+    
+        <!-- <section class="blog-posts" id="blog-data"></section> -->
+
+
+
     </main>
 </body>
 </html>
