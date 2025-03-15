@@ -1,0 +1,65 @@
+/* General Styles - Mobile First */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+header {
+    background-color: #8ac4d0;
+    color: #ffffff;
+    padding: 10px 0;
+    text-align: center;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #333;
+    flex-wrap: wrap; /* Ensures flexibility for smaller screens */
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    display: block;
+    font-size: 16px;
+}
+
+nav a:hover {
+    background-color: #575757;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    background-color: #333;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    margin-top: 20px;
+}
+
+/* Media Query for Screens Larger Than 768px (Desktop View) */
+@media (min-width: 768px) {
+    nav {
+        justify-content: center; /* Align nav links evenly across the width */
+    }
+
+    nav a {
+        padding: 14px 20px; /* Slightly larger padding for desktop */
+        font-size: 18px;
+    }
+
+    main {
+        padding: 40px;
+    }
+
+    footer {
+        padding: 20px;
+    }
+}
