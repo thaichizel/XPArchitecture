@@ -1,20 +1,69 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home - XP Architecture</title>
-    <link rel="stylesheet" href="css/styles.css">
+    <title>XP Architecture</title>
+    <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #8ac4d0;
+            color: #ffffff;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #333;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 14px 20px;
+            display: block;
+            cursor: pointer;
+        }
+        nav a:hover {
+            background-color: #575757;
+        }
+        main {
+            padding: 20px;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
-    <!-- Include the navbar -->
-    <div id="navbar"></div>
-    <script src="js/loadNavbar.js"></script>
-    
+    <header>
+        <h1>XP Architecture</h1>
+        <p>Exploration - Experience - Excellence</p>
+    </header>
+    <nav>
+        <a hx-get="blog.html" hx-target="#content" hx-swap="innerHTML" hx-push-url="/blog">Blog</a>
+        <a hx-get="services.html" hx-target="#content" hx-swap="innerHTML" hx-push-url="/services">Services</a>
+        <a hx-get="contact.html" hx-target="#content" hx-swap="innerHTML" hx-push-url="/contact">Contact</a>
+        <a hx-get="portfolio.html" hx-target="#content" hx-swap="innerHTML" hx-push-url="/portfolio">Portfolio</a>
+    </nav>
     <main>
-        <h1>This is the Home Page</h1>
-        <p>What do I want to see here?</p>
+        <div id="content">
+            <h2>Welcome!</h2>
+            <p>Click the navigation links to explore our website dynamically.</p>
+        </div>
     </main>
+    <footer>
+        <p>&copy; 2025 XP Architecture</p>
+    </footer>
 </body>
 </html>
