@@ -7,26 +7,34 @@
         <script src="https://unpkg.com/htmx.org@2.0.4" integrity="sha384-HGfztofotfshcF7+8n44JQL2oJmowVChPTg48S+jvZoztPfvwD79OC/LTtG6dMp+" crossorigin="anonymous"></script>
         <link rel="stylesheet" href="styles.css">
     </head>
-    
-<body>
-    <header>
-        <h1>XP Architecture</h1>
-        <p>Exploration - Experience - Excellence</p>
-    </header>
-    <nav>
-        <a hx-get="blog.html" hx-target="#content" hx-swap="innerHTML" hx-push-url="/blog">Blog</a>
-        <a hx-get="services.html" hx-target="#content" hx-swap="innerHTML" hx-push-url="/services">Services</a>
-        <a hx-get="contact.html" hx-target="#content" hx-swap="innerHTML" hx-push-url="/contact">Contact</a>
-        <a hx-get="portfolio.html" hx-target="#content" hx-swap="innerHTML" hx-push-url="/portfolio">Portfolio</a>
-    </nav>
-    <main>
-        <div id="content">
-            <h2>Welcome!</h2>
-            <p>Click the navigation links to explore our website dynamically.</p>
-        </div>
-    </main>
-    <footer>
-        <p>&copy; 2025 XP Architecture</p>
-    </footer>
-</body>
+    <body>
+        <header>
+            <h1>XP Architecture</h1>
+            <p>Exploration - Experience - Excellence</p>
+        </header>
+        <nav>
+            <a hx-get="blog.html" hx-target="#content" hx-swap="innerHTML" hx-push-url="/blog">Blog</a>
+            <a hx-get="services.html" hx-target="#content" hx-swap="innerHTML" hx-push-url="/services">Services</a>
+            <a hx-get="contact.html" hx-target="#content" hx-swap="innerHTML" hx-push-url="/contact">Contact</a>
+            <a hx-get="portfolio.html" hx-target="#content" hx-swap="innerHTML" hx-push-url="/portfolio">Portfolio</a>
+        </nav>
+        <main id="layout">
+            <!-- Sidebar for Categories -->
+            <div id="sidebar" hx-get="categories-sidebar.html" hx-trigger="load"></div>
+            
+            <!-- Dynamic Content Area -->
+            <div id="content">
+                <h2>This site is built with htmx</h2>
+                <p>Click the navigation links to explore our website dynamically.</p>
+            </div>
+        </main>
+        <footer>
+            <p>&copy; 2025 XP Architecture</p>
+
+            <nav><a hx-get="contact.html" hx-target="#content" hx-swap="innerHTML" hx-push-url="/contact">Contact</a></nav>
+
+
+
+        </footer>
+    </body>
 </html>

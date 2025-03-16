@@ -1,9 +1,110 @@
-<div>
-    <h2>Our Blog</h2>
-    <p>Welcome to our blog! Explore the latest insights, trends, and updates in architecture, design, and technology.</p>
-    <ul>
-        <li><strong>Post 1:</strong> <a href="#">"The Rise of Sustainable Architecture"</a></li>
-        <li><strong>Post 2:</strong> <a href="#">"Top 10 Modern Interior Design Tips"</a></li>
-        <li><strong>Post 3:</strong> <a href="#">"How Technology is Shaping Future Cities"</a></li>
-    </ul>
+<div id="blog-snippets">
+    <!-- Blog snippets will dynamically load here -->
 </div>
+
+<script>
+    // Fetch and render blog snippets dynamically
+    async function loadSnippets() {
+        const response = await fetch('blog.json'); // Ensure blog.json is in the same directory
+        const blogs = await response.json();
+
+        const snippetsContainer = document.getElementById('blog-snippets');
+        snippetsContainer.innerHTML = ''; // Clear existing content
+
+        blogs.forEach(blog => {
+            const snippet = document.createElement('div');
+            snippet.className = 'blog-snippet';
+            snippet.setAttribute('hx-get', blog.file); // Load the full blog post on click
+            snippet.setAttribute('hx-target', '#content');
+            snippet.setAttribute('hx-swap', 'innerHTML');
+
+            snippet.innerHTML = `
+                <h3>${blog.title}</h3>
+                <img src="${blog.image}" alt="${blog.title}" />
+                <p>${blog.excerpt}</p>
+            `;
+
+            snippetsContainer.appendChild(snippet);
+        });
+    }
+
+    // Load snippets when the page loads
+    loadSnippets();
+</script>
+
+
+<script>
+    async function loadBlogs(category) {
+        // Fetch the blog data from the JSON file
+        const response = await fetch('blog.json');
+        const blogs = await response.json();
+
+        // Filter blogs by category, or show all if 'all' is selected
+        const filteredBlogs = category === 'all' ? blogs : blogs.filter(blog => blog.category === category);
+
+        // Dynamically render the filtered snippets
+        const snippetsContainer = document.getElementById('blog-snippets');
+        snippetsContainer.innerHTML = ''; // Clear current content
+
+        filteredBlogs.forEach(blog => {
+            const snippet = document.createElement('div');
+            snippet.className = 'blog-snippet';
+            snippet.setAttribute('hx-get', blog.file); // Enables clicking to load individual blog posts
+            snippet.setAttribute('hx-target', '#content');
+            snippet.setAttribute('hx-swap', 'innerHTML');
+
+            snippet.innerHTML = `
+                <h3>${blog.title}</h3>
+                <img src="${blog.image}" alt="${blog.title}" />
+                <p>${blog.excerpt}</p>
+            `;
+
+            snippetsContainer.appendChild(snippet);
+        });
+
+        // Attach click events to blog snippets (optional: in case HTMX doesn't handle them correctly)
+        document.querySelectorAll('.blog-snippet').forEach(snippet => {
+            snippet.addEventListener('click', () => {
+                // The `hx-get` will load the full blog post
+            });
+        });
+    }
+
+    async function loadCategories() {
+        // Fetch blog data from JSON
+        const response = await fetch('blog.json');
+        const blogs = await response.json();
+
+        // Extract unique categories
+        const categories = [...new Set(blogs.map(blog => blog.category))];
+        categories.unshift('all'); // Add "All" as a category
+
+        // Generate buttons dynamically
+        const categoryList = document.getElementById('category-list');
+        categoryList.innerHTML = ''; // Clear existing content
+
+        categories.forEach(category => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `
+                <button hx-get="blog.html?category=${encodeURIComponent(category)}" 
+                        hx-target="#blog-snippets" 
+                        hx-swap="innerHTML">
+                    ${category.charAt(0).toUpperCase() + category.slice(1)} <!-- Capitalize -->
+                </button>
+            `;
+            categoryList.appendChild(listItem);
+        });
+
+        // Attach click event listeners to category buttons
+        document.querySelectorAll('#category-list button').forEach(button => {
+            button.addEventListener('click', (event) => {
+                const category = event.target.getAttribute('hx-get').split('=')[1]; // Extract category from hx-get
+                loadBlogs(category); // Call the loadBlogs function with the selected category
+            });
+        });
+    }
+
+    // Load categories and blogs on page load
+    loadCategories();
+    loadBlogs('all'); // Load all blogs by default
+</script>

@@ -1,0 +1,38 @@
+<aside>
+    <h3>Categories</h3>
+    <ul id="category-list">
+        <!-- Category buttons will be dynamically generated here -->
+    </ul>
+</aside>
+<script>
+    async function loadCategories() {
+        // Fetch blog data from JSON
+        const response = await fetch('blog.json');
+        const blogs = await response.json();
+
+        // Extract unique categories
+        const categories = [...new Set(blogs.map(blog => blog.category))];
+
+        // Add an "All" button at the top
+        categories.unshift('all');
+
+        // Generate buttons dynamically
+        const categoryList = document.getElementById('category-list');
+        categoryList.innerHTML = ''; // Clear existing content
+
+        categories.forEach(category => {
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `
+                <button hx-get="blog.html?category=${encodeURIComponent(category)}" 
+                        hx-target="#blog-snippets" 
+                        hx-swap="innerHTML">
+                    ${category.charAt(0).toUpperCase() + category.slice(1)} <!-- Capitalize -->
+                </button>
+            `;
+            categoryList.appendChild(listItem);
+        });
+    }
+
+    // Load categories when the page loads
+    loadCategories();
+</script>

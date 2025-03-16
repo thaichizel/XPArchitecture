@@ -1,0 +1,44 @@
+[
+    {
+        "file": "post1.html",
+        "date": "2025-04-01",
+        "title": "Bellair Station Fleche",
+        "image": "/images/blog/testImage1.jpg",
+        "excerpt": "After a terrible occurrence... but then...",
+        "category": "architecture",
+        "tags": ["heritage", "architecture", "Sketchup"]
+        
+    },
+    {
+        "file": "post2.html",
+        "date": "2025-03-20",
+        "title": "Assamba Mozomabique",
+        "image": "/images/blog/testImage3.jpg",
+        "excerpt": "Bamboo things...",
+        "category": "technology",
+        "tags": ["sustainability", "urban", "eco"]
+        
+    },
+    {
+        "file": "post3.html",
+        "date": "2025-03-15",
+        "title": "Oh my Goodness",
+        "image": "/images/blog/testImage2.jpg",
+        "excerpt": "Tea is the spice of my wife",
+        "category": "portfolio",
+        "tags": ["sustainability", "urban design", "alternative"]
+        
+    },
+
+    {
+        "file": "post4.html",
+        "date": "2025-03-15",
+        "title": "Breaking the Fourth Wall",
+        "image": "/images/blog/testImage3.jpg",
+        "excerpt": "Tea is the spice of my wife",
+        "category": "urban case study",
+        "tags": ["urban design", "observation"]
+        
+    }
+   
+]
